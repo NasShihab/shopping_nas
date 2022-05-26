@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:shopping_nas/cart_add.dart';
-import 'package:get/get.dart';
+import 'package:shopping_nas/nextPage.dart';
 
 class homePage extends StatefulWidget {
   const homePage({Key? key}) : super(key: key);
@@ -10,10 +9,11 @@ class homePage extends StatefulWidget {
   State<homePage> createState() => _homePageState();
 }
 
- bool isVisible = false;
+int ccc = 0;
+int price = 15;
+bool isVisible = false;
 
 // add remove number
-final myController c = Get.put(myController());
 
 // Color(0xFF84FFFF)
 final List<int> clrr = [
@@ -97,144 +97,156 @@ class _homePageState extends State<homePage> {
                   ],
                 ), //flavor
                 SizedBox(height: 10),
-                Container(
-                  padding: EdgeInsetsDirectional.only(
-                      start: 20, top: 20, end: 20, bottom: 20),
-                  decoration: BoxDecoration(
-                    color: Colors.orange[200],
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Expanded(
-                        flex: 1,
-                        child: Container(
-                          width: 120,
-                          height: 120,
-                          child: Image.asset('images/vanilla.png'),
-                        ),
+                GestureDetector(
+                  onTap: (){
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (BuildContext context) => nextPage(),
                       ),
-                      Expanded(
-                        flex: 2,
-                        child: Container(
-                          height: 150,
-                          child: Column(
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'Vanilla Ice Creamm',
-                                    overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 16,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                height: 30,
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.stretch,
-                                children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      Text(
-                                        '1 KG',
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 16,
-                                        ),
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceAround,
-                                        children: [
-                                          Icon(Icons.star),
-                                          Text(
-                                            '4.5',
-                                            style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 16,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    height: 20,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Row(
-                                        children: [
-                                          Icon(Icons.bolt_rounded),
-                                          Text(
-                                            '15',
-                                            style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 20,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      SizedBox(width: 20),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.end,
-                                        children: [
-                                          Visibility(
-                                            visible: isVisible,
-                                            child: IconButton(
-                                              onPressed: () {
-                                                c.decreament();
-                                                setState(() {
-                                                  if (c.count <= 0 ){
-                                                    isVisible = false;
-                                                  }
-                                                  else{
-                                                    isVisible = true;
-                                                  }
-                                                });
-                                              },
-                                              icon: Icon(Icons.remove),
-                                            ),
-                                          ),
-                                          Visibility(
-                                            visible: isVisible,
-                                            child: Obx(() => Text(
-                                              '${c.count.toString()}',
-                                              style: TextStyle(
-                                                  fontSize: 25, fontWeight: FontWeight.bold),
-                                            )),
-                                          ),
-                                          IconButton(
-                                            onPressed: () {
-                                              c.increament();
-                                              setState(() {
-                                                isVisible = true;
-                                              });
-                                            },
-                                            icon: Icon(Icons.add),
-                                          ),],
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              )
-                            ],
+                    );
+                  },
+                  child: Container(
+                    padding: EdgeInsetsDirectional.only(
+                        start: 20, top: 20, end: 20, bottom: 20),
+                    decoration: BoxDecoration(
+                      color: Colors.orange[200],
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Expanded(
+                          flex: 1,
+                          child: Container(
+                            width: 120,
+                            height: 120,
+                            child: Image.asset('images/vanilla.png'),
                           ),
                         ),
-                      ),
-                    ],
+                        Expanded(
+                          flex: 2,
+                          child: Container(
+                            height: 150,
+                            child: Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      'Vanilla Ice Creamm',
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 16,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 30,
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        Text(
+                                          '1 KG',
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 16,
+                                          ),
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceAround,
+                                          children: [
+                                            Icon(Icons.star),
+                                            Text(
+                                              '4.5',
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 16,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: 20,
+                                    ),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Text(
+                                              'tk ${price.toString()}',
+                                              style: TextStyle(
+                                                  fontSize: 25,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                          ],
+                                        ),
+                                        SizedBox(width: 20),
+                                        Row(
+                                          mainAxisAlignment: MainAxisAlignment.end,
+                                          children: [
+                                            Visibility(
+                                              visible: isVisible,
+                                              child: IconButton(
+                                                onPressed: () {
+                                                  ccc--;
+                                                  setState(() {
+                                                    if (ccc >= 1){
+                                                      price-=15;
+                                                    }
+                                                    if (ccc <= 0) {
+                                                      isVisible = false;
+                                                    } else {
+                                                      isVisible = true;
+                                                    }
+                                                  });
+                                                },
+                                                icon: Icon(Icons.remove),
+                                              ),
+                                            ),
+                                            Visibility(
+                                              visible: isVisible,
+                                              child: Text(
+                                                '${ccc.toString()}',
+                                                style: TextStyle(
+                                                    fontSize: 25, fontWeight: FontWeight.bold),
+                                              ),
+                                            ),
+                                            IconButton(
+                                              onPressed: () {
+                                                ccc++;
+                                                setState(() {
+                                                  if (ccc >= 2){
+                                                    price+=15;
+                                                  }
+                                                  isVisible = true;
+                                                });
+                                              },
+                                              icon: Icon(Icons.add),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 SizedBox(height: 30),
@@ -298,6 +310,7 @@ class _homePageState extends State<homePage> {
                                   SizedBox(width: 10),
                                 ],
                               );
+                              //hm
                             }),
                       ),
                     ),
@@ -305,7 +318,7 @@ class _homePageState extends State<homePage> {
                 ),
                 SizedBox(
                   height: 20,
-                ),//end
+                ), //end
               ],
             ),
           ),
@@ -313,4 +326,15 @@ class _homePageState extends State<homePage> {
       ),
     );
   }
+}
+
+class multiPle extends StatelessWidget {
+  multiPle({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+
+  inff() {}
 }

@@ -2,7 +2,5 @@
 
 A new Flutter project.
 
-## Getting Started
-I am just learnig flutter.. this is the demo I made.. Let's see what's in future work!
-
-![CHEESE!](images/demo01.png)
+Demo
+<img src="https://drive.google.com/uc?export=view&id=1KRD-vyRwIXVI5KHQwiVg4ApTrsFeELHI" width="200" height="500">
